@@ -28,12 +28,16 @@ public abstract class KiallitasiTargy {
     private LocalDate letrehozas;
     private String keszito, cim;
 
-    public KiallitasiTargy(String keszito, String cim) {
+    public KiallitasiTargy(String keszito, String cim) throws HibasDatumException {
         this(LocalDate.now(), keszito, cim);
     }
 
-    public KiallitasiTargy(LocalDate letrehozas, String keszito, String cim) {
+    public KiallitasiTargy(LocalDate letrehozas, String keszito, String cim) throws HibasDatumException {
+        if(letrehozas.isAfter(LocalDate.now())){
+            throw new HibasDatumException("Nem létező dátum");
+        }
         this.letrehozas = letrehozas;
+        
         this.keszito = keszito;
         this.cim = cim;
     }
