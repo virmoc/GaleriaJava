@@ -1,21 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
-/**
- *
- * @author csolti
- */
+import modell.Festmeny;
+import modell.Galeria;
+import modell.KiallitasiTargy;
+
 public class Program {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Galeria galeria = new Galeria();
+        
+        System.out.println("Cím szerinti:");
+        for (KiallitasiTargy targy : galeria.rendezCimSzerint()) {
+            System.out.println(targy);
+        }
+        
+        System.out.println("Készítő szerinti:");
+        for (KiallitasiTargy targy : galeria.rendezKeszitoSzerint()) {
+            System.out.println(targy);
+        }
+        
+        for (KiallitasiTargy targy : galeria) {
+            if(targy instanceof Festmeny){
+                ((Festmeny)targy).megjelenites();
+            }
+        
+        }
     }
     
 }

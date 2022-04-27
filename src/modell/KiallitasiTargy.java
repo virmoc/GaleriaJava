@@ -54,5 +54,18 @@ public abstract class KiallitasiTargy {
         return cim;
     }
     
+    public static CimComparator cimRendezo(){
+        return new CimComparator();
+    }
+    
+    public static KeszitoComparator keszitoRendezo(){
+        return new KeszitoComparator();
+    }
+
+    @Override
+    public String toString() {
+        return "KiallitasiTargy{" + "letrehozas=" + letrehozas + ", keszito=" + keszito + ", cim=" + cim + '}';
+    }
+    
     
 }

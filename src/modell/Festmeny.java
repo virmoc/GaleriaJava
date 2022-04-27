@@ -15,6 +15,10 @@ public class Festmeny extends KiallitasiTargy{
         this(eleres, LocalDate.now(), keszito, cim);
     }
 
+    public Festmeny(LocalDate letrehozas, String keszito, String cim) throws HibasDatumException {
+        this(new File("nincs"), letrehozas, keszito, cim);
+    }
+    
     public Festmeny(File eleres, LocalDate letrehozas, String keszito, String cim) throws HibasDatumException {
         super(letrehozas, keszito, cim);
         this.eleres = eleres;
@@ -27,5 +31,12 @@ public class Festmeny extends KiallitasiTargy{
             System.out.println("nem lehet megjeleníteni");
         }
     }
+
+    @Override
+    public String toString() {
+        String os = super.toString();
+        return os + "Festmeny{" + "eleres=" + eleres + '}';
+    }
+    
     
 }
