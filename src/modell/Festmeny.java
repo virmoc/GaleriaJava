@@ -1,14 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modell;
 
-/**
- *
- * @author csolti
- */
-public class Festmeny {
+import java.io.File;
+import java.time.LocalDate;
+
+public class Festmeny extends KiallitasiTargy{
+    
+    private File eleres;
+    
+    public Festmeny(String keszito, String cim) {
+        this(new File("nincs"), keszito, cim);
+    }
+
+    public Festmeny(File eleres, String keszito, String cim) {
+        this(eleres, LocalDate.now(), keszito, cim);
+    }
+
+    public Festmeny(File eleres, LocalDate letrehozas, String keszito, String cim) {
+        super(letrehozas, keszito, cim);
+        this.eleres = eleres;
+    }
+    
+    public void megjelenites(){
+        if(eleres.exists()){
+            System.out.println("megjelenítés folyamatban...");
+        }else{
+            System.out.println("nem lehet megjeleníteni");
+        }
+    }
     
 }
